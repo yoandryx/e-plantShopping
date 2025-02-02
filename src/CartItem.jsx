@@ -16,16 +16,20 @@ const CartItem = ({ setShowCart }) => {
         setShowCart(false);  // Navigate back to product listing
   };
 
+  const handleCheckout = (e) => {
+    alert("Coming Soon! Checkout feature will be available soon.");
+  };
+
   const handleIncrement = (item) => {
         dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
   };
 
   const handleDecrement = (item) => {
         if (item.quantity > 1) {
-            dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
-        } else {
-            dispatch(removeItem(item.name));
-        }
+            dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));}
+        // } else {
+        //     dispatch(removeItem(item.name));
+        // }
   };
 
   const handleRemove = (item) => {
@@ -62,7 +66,7 @@ const CartItem = ({ setShowCart }) => {
       <div className="continue_shopping_btn">
         <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
         <br />
-        <button className="get-started-button1">Checkout</button>
+        <button className="get-started-button1" onClick={(e) => handleCheckout(e)}>Checkout</button>
       </div>
     </div>
   );
